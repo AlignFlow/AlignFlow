@@ -1,109 +1,376 @@
-# Anonymous Submission: Project Page
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anonymous Submission — Project Page</title>
+  <meta name="description" content="Anonymous ICML submission project page with method overview and demo videos." />
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --line: rgba(255,255,255,.12);
+      --accent: #7c3aed;
+      --accent2:#22c55e;
+      --shadow: 0 12px 36px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1080px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
 
-> **Anonymous ICML submission supplementary website.**  
-> This page contains method overview, pipeline figure, and additional qualitative videos.
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(700px 450px at 85% 10%, rgba(34,197,94,.22), transparent 55%),
+        radial-gradient(900px 600px at 50% 120%, rgba(59,130,246,.14), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
 
----
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ opacity: .92; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 26px 18px 56px; }
 
-## 1. Method Overview
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,15,23,.75), rgba(11,15,23,.45));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 650;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      box-shadow: 0 0 0 3px rgba(124,58,237,.18);
+    }
+    .navlinks{ display:flex; gap: 10px; flex-wrap: wrap; justify-content:flex-end; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .pill:hover{ background: rgba(255,255,255,.06); color: var(--text); }
 
-Write a short anonymous description here (no author/institution info).  
-- Problem: ...
-- Key idea: ...
-- Highlights: ...
+    /* Hero */
+    .hero{ padding: 44px 0 22px; }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    h1{
+      margin: 16px 0 10px;
+      font-size: clamp(30px, 4.2vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.6px;
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 72ch;
+    }
+    .cta{ display:flex; gap: 10px; flex-wrap: wrap; align-items:center; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      font-size: 14px;
+    }
+    .btn.primary{
+      border-color: rgba(124,58,237,.55);
+      background: linear-gradient(135deg, rgba(124,58,237,.85), rgba(96,165,250,.55));
+    }
+    .btn small{ color: rgba(255,255,255,.85); font-size: 12px; }
+    .hr{
+      margin: 24px 0 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--line), transparent);
+    }
 
----
+    /* Sections */
+    section{ margin-top: 26px; }
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    h2{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .hint{ color: var(--muted2); font-size: 13px; }
 
-## 2. Pipeline
+    .card{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card .pad{ padding: 18px 18px; }
 
-<p align="center">
-  <a href="assets/pipeline.png">
-    <img src="assets/pipeline.png" alt="Pipeline" width="100%">
-  </a>
-</p>
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 6px 0; }
 
-> *Figure: Overview of the proposed pipeline.*  
-> (Click the image to open the full-resolution version.)
+    /* Media */
+    .imgWrap{
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      padding: 12px;
+    }
+    .imgWrap img{
+      width: 100%;
+      height: auto;
+      display:block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .imgCap{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
 
----
+    /* Video grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding: 14px;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .vcard{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      overflow:hidden;
+      display:flex;
+      flex-direction: column;
+      min-height: 240px;
+    }
+    .vmeta{
+      padding: 10px 12px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .tag{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.75);
+      white-space: nowrap;
+    }
+    video{
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16/9;
+      display:block;
+      background: rgba(0,0,0,.35);
+    }
 
-## 3. Videos (12+)
+    /* Footer */
+    footer{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted2);
+      font-size: 12.5px;
+    }
+  </style>
+</head>
 
-> If videos do not play in the GitHub preview, please click the file link to download/view.  
-> Recommended: MP4 (H.264), keep each file reasonably sized.
+<body>
+  <div class="nav">
+    <div class="inner">
+      <div class="brand"><span class="dot"></span><span>Anonymous Submission</span></div>
+      <div class="navlinks">
+        <a class="pill" href="#method">Method</a>
+        <a class="pill" href="#videos">Videos</a>
+      </div>
+    </div>
+  </div>
 
-### Video Grid
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">Double-blind • ICML Supplementary Page</div>
+      <h1>Project Title (Anonymous)</h1>
+      <p class="subtitle">
+        One-sentence claim. Keep it anonymous: no author names, affiliations, or identifying links.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#videos">Watch demos</a>
+        <a class="btn" href="#method">Read method overview</a>
+      </div>
+      <div class="hr"></div>
+    </header>
 
-<table>
-  <tr>
-    <td align="center"><b>Video 01</b><br/>
-      <video src="assets/videos/v01.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v01.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 02</b><br/>
-      <video src="assets/videos/v02.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v02.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 03</b><br/>
-      <video src="assets/videos/v03.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v03.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 04</b><br/>
-      <video src="assets/videos/v04.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v04.mp4">Download</a>
-    </td>
-  </tr>
+    <!-- METHOD -->
+    <section id="method">
+      <div class="sectionHead">
+        <h2>Method Overview</h2>
+        <div class="hint">Optional: add a pipeline figure inside this card.</div>
+      </div>
 
-  <tr>
-    <td align="center"><b>Video 05</b><br/>
-      <video src="assets/videos/v05.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v05.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 06</b><br/>
-      <video src="assets/videos/v06.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v06.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 07</b><br/>
-      <video src="assets/videos/v07.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v07.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 08</b><br/>
-      <video src="assets/videos/v08.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v08.mp4">Download</a>
-    </td>
-  </tr>
+      <div class="card">
+        <div class="pad">
+          <p style="margin:0;color:var(--muted);">
+            Write a short, reviewer-friendly overview (3–8 sentences). Example structure:
+          </p>
+          <ul class="bullets">
+            <li><b>Problem.</b> What setting/task are you solving?</li>
+            <li><b>Key idea.</b> What is the core technical contribution?</li>
+            <li><b>Training / inference.</b> Mention the key components (modules/losses) succinctly.</li>
+            <li><b>Why it works.</b> One sentence with intuition.</li>
+          </ul>
+        </div>
 
-  <tr>
-    <td align="center"><b>Video 09</b><br/>
-      <video src="assets/videos/v09.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v09.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 10</b><br/>
-      <video src="assets/videos/v10.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v10.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 11</b><br/>
-      <video src="assets/videos/v11.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v11.mp4">Download</a>
-    </td>
-    <td align="center"><b>Video 12</b><br/>
-      <video src="assets/videos/v12.mp4" controls muted playsinline width="260"></video><br/>
-      <a href="assets/videos/v12.mp4">Download</a>
-    </td>
-  </tr>
-</table>
+        <!-- If you want a big pipeline figure, uncomment this block and upload assets/pipeline.png -->
+        <!--
+        <div class="imgWrap">
+          <a href="assets/pipeline.png" target="_blank" rel="noopener">
+            <img src="assets/pipeline.png" alt="Pipeline figure (click to open)" />
+          </a>
+          <div class="imgCap">Pipeline figure (click to open full resolution).</div>
+        </div>
+        -->
+      </div>
+    </section>
 
----
+    <!-- VIDEOS -->
+    <section id="videos">
+      <div class="sectionHead">
+        <h2>Demo Videos</h2>
+        <div class="hint">If a video doesn’t autoplay: click play, or open the file directly.</div>
+      </div>
 
-## 4. Reproducibility / Notes (Optional)
+      <div class="card">
+        <div class="grid">
+          <!-- Duplicate / edit these blocks as needed. Keep at least 12. -->
+          <div class="vcard">
+            <video src="assets/videos/v01.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 01</span><span class="tag">v01</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v02.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 02</span><span class="tag">v02</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v03.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 03</span><span class="tag">v03</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v04.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 04</span><span class="tag">v04</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v05.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 05</span><span class="tag">v05</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v06.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 06</span><span class="tag">v06</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v07.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 07</span><span class="tag">v07</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v08.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 08</span><span class="tag">v08</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v09.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 09</span><span class="tag">v09</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v10.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 10</span><span class="tag">v10</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v11.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 11</span><span class="tag">v11</span></div>
+          </div>
+          <div class="vcard">
+            <video src="assets/videos/v12.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vmeta"><span>Demo 12</span><span class="tag">v12</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-- Environment: ...
-- How to run: ...
-- Additional ablations: ...
-
----
-
-## 5. Anonymous Disclaimer
-
-This repository is anonymized for double-blind review.  
-Please do not attempt to de-anonymize the authors.
+    <footer>
+      <div><b>Anonymous note:</b> This page is anonymized for double-blind review. Please do not attempt to de-anonymize the authors.</div>
+      <div style="margin-top:6px;">Tip: keep videos reasonably small (MP4 H.264) for faster loading.</div>
+    </footer>
+  </div>
+</body>
+</html>
