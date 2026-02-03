@@ -192,60 +192,57 @@
 
     <hr />
 
-    <!-- Videos -->
     <section id="videos">
       <h2>Demo Videos</h2>
-      <p class="muted">MP4 (H.264) recommended. Filenames must match the paths below.</p>
-
-      <div class="grid">
-        <!-- 12 demos -->
-        <div class="vcard">
-          <video src="assets/videos/v01.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 01</span><span class="tag">v01</span></div>
+      <p class="muted">
+        Real-time evaluation on seen tasks and generalization to unseen objects.
+      </p>
+    
+      <!-- Real-time Test -->
+      <div class="video-group">
+        <h3>Real-time Test</h3>
+        <div class="group-note">Evaluation on tasks seen during training.</div>
+    
+        <div class="grid">
+          <div class="vcard">
+            <video src="assets/videos/scoop_and_pour.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vbar"><span>Scoop and Pour</span><span class="tag">seen</span></div>
+          </div>
+    
+          <div class="vcard">
+            <video src="assets/videos/place_in_drawer.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vbar"><span>Place in Drawer</span><span class="tag">seen</span></div>
+          </div>
+    
+          <div class="vcard">
+            <video src="assets/videos/pick_and_weigh.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vbar"><span>Pick and Weigh</span><span class="tag">seen</span></div>
+          </div>
         </div>
-        <div class="vcard">
-          <video src="assets/videos/v02.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 02</span><span class="tag">v02</span></div>
+      </div>
+    
+      <!-- Unseen Objects -->
+      <div class="video-group">
+        <h3>Real-time Test for Unseen Objects</h3>
+        <div class="group-note">
+          Generalization to objects not observed during training.
         </div>
-        <div class="vcard">
-          <video src="assets/videos/v03.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 03</span><span class="tag">v03</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v04.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 04</span><span class="tag">v04</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v05.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 05</span><span class="tag">v05</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v06.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 06</span><span class="tag">v06</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v07.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 07</span><span class="tag">v07</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v08.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 08</span><span class="tag">v08</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v09.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 09</span><span class="tag">v09</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v10.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 10</span><span class="tag">v10</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v11.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 11</span><span class="tag">v11</span></div>
-        </div>
-        <div class="vcard">
-          <video src="assets/videos/v12.mp4" controls muted playsinline preload="metadata"></video>
-          <div class="vbar"><span>Demo 12</span><span class="tag">v12</span></div>
+    
+        <div class="grid">
+          <div class="vcard">
+            <video src="assets/videos/unseen_cabbage.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vbar"><span>Cabbage</span><span class="tag">unseen</span></div>
+          </div>
+    
+          <div class="vcard">
+            <video src="assets/videos/unseen_cube.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vbar"><span>Cube</span><span class="tag">unseen</span></div>
+          </div>
+    
+          <div class="vcard">
+            <video src="assets/videos/unseen_ball.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="vbar"><span>Ball</span><span class="tag">unseen</span></div>
+          </div>
         </div>
       </div>
     </section>
