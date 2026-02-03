@@ -262,7 +262,7 @@
   <div class="wrap">
     <header class="hero">
       <div class="kicker">Double-blind • ICML Supplementary Page</div>
-      <h1>Project Title (Anonymous)</h1>
+      <h1>AlignFlow: Observation-Conditioned Multimodal Noise for Robotic Policies</h1>
       <p class="subtitle">
         One-sentence claim. Keep it anonymous: no author names, affiliations, or identifying links.
       </p>
@@ -283,15 +283,24 @@
       <div class="card">
         <div class="pad">
           <p style="margin:0;color:var(--muted);">
-            Write a short, reviewer-friendly overview (3–8 sentences). Example structure:
+          <b>Overview of the AlignFlow architecture.</b>
+          The observation is first encoded to parameterize an
+          <em>observation-conditioned Gaussian mixture noise model</em>,
+          which captures both discrete action modes and within-mode stochasticity.
           </p>
-          <ul class="bullets">
-            <li><b>Problem.</b> What setting/task are you solving?</li>
-            <li><b>Key idea.</b> What is the core technical contribution?</li>
-            <li><b>Training / inference.</b> Mention the key components (modules/losses) succinctly.</li>
-            <li><b>Why it works.</b> One sentence with intuition.</li>
-          </ul>
-        </div>
+          
+          <p style="margin:10px 0 0;color:var(--muted);">
+            During training, noise is sampled from all mixture components, and actions
+            are generated via <em>mode-conditioned flow matching</em>, enabling the policy
+            to learn diverse yet structured action distributions.
+          </p>
+          
+          <p style="margin:10px 0 0;color:var(--muted);">
+            At inference time, a single latent mode is selected conditioned on the
+            observation, and the corresponding flow generates a
+            <em>trajectory-consistent action</em>, ensuring coherent decision making.
+          </p>
+         </div>
 
         <!-- If you want a big pipeline figure, uncomment this block and upload assets/pipeline.png -->
         <!--
